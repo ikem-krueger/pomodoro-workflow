@@ -32,16 +32,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
         Task task = taskList.get(position);
 
-        if(task instanceof ShortBreak) {
+        if(task.getClass() == Task.class) {
+            holder.view.setBackgroundColor(Color.parseColor("#ED5755"));
+        } else if(task.getClass() == ShortBreak.class) {
             holder.view.setBackgroundColor(Color.parseColor("#779C74"));
             holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
             holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 36, holder.taskIcon.getContext().getResources().getDisplayMetrics());
-        } else if (task instanceof LongBreak) {
+        } else if (task.getClass() == LongBreak.class) {
             holder.view.setBackgroundColor(Color.parseColor("#779C74"));
             holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
             holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, holder.taskIcon.getContext().getResources().getDisplayMetrics());
-        } else {
-            holder.view.setBackgroundColor(Color.parseColor("#ED5755"));
         }
 
         holder.taskDescription.setText(task.getDuration() + " min. " + task.getDescription());
