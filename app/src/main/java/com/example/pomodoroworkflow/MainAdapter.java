@@ -35,13 +35,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         Task task = taskList.get(position);
 
         if(task instanceof ShortBreak) {
-            holder.view.setBackgroundColor(Color.BLUE);
+            holder.view.setBackgroundColor(Color.parseColor("#779C74"));
             holder.imageView3.setImageResource(R.drawable.ic_pause_black_44dp);
             holder.imageView3.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 36, holder.imageView3.getContext().getResources().getDisplayMetrics());
         } else if (task instanceof LongBreak) {
-            holder.view.setBackgroundColor(Color.BLUE);
+            holder.view.setBackgroundColor(Color.parseColor("#779C74"));
             holder.imageView3.setImageResource(R.drawable.ic_pause_black_44dp);
-            holder.imageView3.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 96, holder.imageView3.getContext().getResources().getDisplayMetrics());
+            holder.imageView3.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, holder.imageView3.getContext().getResources().getDisplayMetrics());
+        } else {
+            holder.view.setBackgroundColor(Color.parseColor("#ED5755"));
         }
 
         holder.taskDescriptionTV.setText(task.getDuration() + " min. " + task.getDescription());
