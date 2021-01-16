@@ -6,8 +6,18 @@
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/taskIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/taskDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_alarm_black_22dp" />
+
     <TextView
-        android:id="@+id/taskDescriptionTV"
+        android:id="@+id/taskDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Task Description"
@@ -23,15 +33,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.3" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/taskDescriptionTV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_alarm_black_22dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

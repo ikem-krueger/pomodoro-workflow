@@ -1,7 +1,6 @@
 package com.example.pomodoroworkflow;
 
 import android.graphics.Color;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,17 +34,17 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
         if(task instanceof ShortBreak) {
             holder.view.setBackgroundColor(Color.parseColor("#779C74"));
-            holder.imageView3.setImageResource(R.drawable.ic_pause_black_44dp);
-            holder.imageView3.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 36, holder.imageView3.getContext().getResources().getDisplayMetrics());
+            holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
+            holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 36, holder.taskIcon.getContext().getResources().getDisplayMetrics());
         } else if (task instanceof LongBreak) {
             holder.view.setBackgroundColor(Color.parseColor("#779C74"));
-            holder.imageView3.setImageResource(R.drawable.ic_pause_black_44dp);
-            holder.imageView3.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, holder.imageView3.getContext().getResources().getDisplayMetrics());
+            holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
+            holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, holder.taskIcon.getContext().getResources().getDisplayMetrics());
         } else {
             holder.view.setBackgroundColor(Color.parseColor("#ED5755"));
         }
 
-        holder.taskDescriptionTV.setText(task.getDuration() + " min. " + task.getDescription());
+        holder.taskDescription.setText(task.getDuration() + " min. " + task.getDescription());
     }
 
     @Override
@@ -57,15 +55,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     public static class MainViewHolder extends RecyclerView.ViewHolder {
 
         private View view;
-        private ImageView imageView3;
-        private TextView taskDescriptionTV;
+        private ImageView taskIcon;
+        private TextView taskDescription;
 
         public  MainViewHolder(View v) {
             super(v);
 
             view = v;
-            imageView3 = v.findViewById(R.id.imageView3);
-            taskDescriptionTV = v.findViewById(R.id.taskDescriptionTV);
+            taskIcon = v.findViewById(R.id.taskIcon);
+            taskDescription = v.findViewById(R.id.taskDescription);
         }
     }
 }
