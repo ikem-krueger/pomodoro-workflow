@@ -68,7 +68,4 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             taskDescriptionTV = v.findViewById(R.id.taskDescriptionTV);
         }
     }
-
-
-    // TODO restlichen Methoden implementieren
 }
