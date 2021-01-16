@@ -23,15 +23,35 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        MainAdapter mainAdapter = new MainAdapter(getMitgliederList());
+        MainAdapter mainAdapter = new MainAdapter(getMitgliederList(), getTaskList());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(mainAdapter);
+    }
+
+    private ArrayList<Task> getTaskList() {
+        ArrayList<Task> tasks = new ArrayList<>();
+
+        tasks.add(new Task());
+        tasks.add(new ShortBreak());
+        tasks.add(new Task());
+        tasks.add(new ShortBreak());
+        tasks.add(new Task());
+        tasks.add(new ShortBreak());
+        tasks.add(new Task());
+        tasks.add(new LongBreak());
+
+        return tasks;
     }
 
     private ArrayList<Mitglied> getMitgliederList() {
         ArrayList<Mitglied> mitgliederList = new ArrayList<>();
 
         mitgliederList.add(new Mitglied("Assmus", "Nico", "wandlitz"));
+        mitgliederList.add(new Mitglied("Bassmus", "Nico", "wandlitz"));
+        mitgliederList.add(new Mitglied("Cassmus", "Nico", "wandlitz"));
+        mitgliederList.add(new Mitglied("Assmus", "Nico", "wandlitz"));
+        mitgliederList.add(new Mitglied("Bassmus", "Nico", "wandlitz"));
+        mitgliederList.add(new Mitglied("Cassmus", "Nico", "wandlitz"));
         mitgliederList.add(new Mitglied("Bassmus", "Nico", "wandlitz"));
         mitgliederList.add(new Mitglied("Cassmus", "Nico", "wandlitz"));
 

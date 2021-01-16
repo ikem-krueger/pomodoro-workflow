@@ -13,9 +13,11 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder> {
 
     ArrayList<Mitglied> mitgliederList;
+    ArrayList<Task> taskList;
 
-    public MainAdapter(ArrayList<Mitglied> mitgliederList) {
+    public MainAdapter(ArrayList<Mitglied> mitgliederList, ArrayList<Task> taskList) {
         this.mitgliederList = mitgliederList;
+        this.taskList = taskList;
     }
 
     @NonNull
@@ -27,9 +29,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
-        holder.nameTV.setText(mitgliederList.get(position).getName());
-        holder.vornameTV.setText(mitgliederList.get(position).getVorname());
-        holder.wohnOrtTV.setText(mitgliederList.get(position).getWohnort());
+        //holder.vornameTV.setText(mitgliederList.get(position).getVorname());
+        //holder.wohnOrtTV.setText(mitgliederList.get(position).getWohnort());
+        holder.nameTV.setText(taskList.get(position).getDuration() + " min. " + taskList.get(position).getDescription());
     }
 
     @Override

@@ -1,8 +1,8 @@
 package com.example.pomodoroworkflow;
 
-public class Activity {
-    String duration;
-    String description;
+public class Task {
+    String duration = "25";
+    String description = "focused work";
 
     public String getDuration() {
         return duration;
@@ -17,11 +17,6 @@ public class Activity {
     }
 
     public void setDescription(String description) {
-        this.description = description;
-    }
-
-    Activity(String duration, String description) {
-        this.duration = duration;
         this.description = description;
     }
 }
