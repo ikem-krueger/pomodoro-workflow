@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        MainAdapter mainAdapter = new MainAdapter(getMitgliederList(), getTaskList());
+        MainAdapter mainAdapter = new MainAdapter(getTaskList());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(mainAdapter);
     }
@@ -41,20 +41,5 @@ public class MainActivity extends AppCompatActivity {
         tasks.add(new LongBreak());
 
         return tasks;
-    }
-
-    private ArrayList<Mitglied> getMitgliederList() {
-        ArrayList<Mitglied> mitgliederList = new ArrayList<>();
-
-        mitgliederList.add(new Mitglied("Assmus", "Nico", "wandlitz"));
-        mitgliederList.add(new Mitglied("Bassmus", "Nico", "wandlitz"));
-        mitgliederList.add(new Mitglied("Cassmus", "Nico", "wandlitz"));
-        mitgliederList.add(new Mitglied("Assmus", "Nico", "wandlitz"));
-        mitgliederList.add(new Mitglied("Bassmus", "Nico", "wandlitz"));
-        mitgliederList.add(new Mitglied("Cassmus", "Nico", "wandlitz"));
-        mitgliederList.add(new Mitglied("Bassmus", "Nico", "wandlitz"));
-        mitgliederList.add(new Mitglied("Cassmus", "Nico", "wandlitz"));
-
-        return mitgliederList;
     }
 }
