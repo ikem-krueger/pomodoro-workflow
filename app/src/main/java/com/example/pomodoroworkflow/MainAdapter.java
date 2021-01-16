@@ -27,7 +27,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
-        holder.nameTV.setText(taskList.get(position).getDuration() + " min. " + taskList.get(position).getDescription());
+        holder.taskDescriptionTV.setText(taskList.get(position).getDuration() + " min. " + taskList.get(position).getDescription());
     }
 
     @Override
@@ -37,11 +37,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
     public static class MainViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView nameTV;
+        private TextView taskDescriptionTV;
 
         public  MainViewHolder(View v) {
             super(v);
-            nameTV = v.findViewById(R.id.nachnameTV);
+            taskDescriptionTV = v.findViewById(R.id.taskDescriptionTV);
         }
     }
 
