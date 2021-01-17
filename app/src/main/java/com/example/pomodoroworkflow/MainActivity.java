@@ -31,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Task> getTaskList() {
         ArrayList<Task> tasks = new ArrayList<>();
 
-        tasks.add(new Task());
-        tasks.add(new ShortBreak());
-        tasks.add(new Task());
-        tasks.add(new ShortBreak());
-        tasks.add(new Task());
-        tasks.add(new ShortBreak());
-        tasks.add(new Task());
-        tasks.add(new LongBreak());
+        tasks.add(new Task("25", "focused work", "task"));
+        tasks.add(new Task("5", "short break", "shortBreak"));
+        tasks.add(new Task("25", "focused work", "task"));
+        tasks.add(new Task("5", "short break", "shortBreak"));
+        tasks.add(new Task("25", "focused work", "task"));
+        tasks.add(new Task("5", "short break", "shortBreak"));
+        tasks.add(new Task("25", "focused work", "task"));
+        tasks.add(new Task("30", "long break", "longBreak"));
 
         return tasks;
     }

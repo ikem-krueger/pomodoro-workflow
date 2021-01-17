@@ -34,16 +34,23 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         int taskColor = holder.view.getResources().getColor(R.color.taskColor,null);
         int pauseColor = holder.view.getResources().getColor(R.color.pauseColor,null);
 
-        if(task.getClass() == Task.class) { // Task
-            holder.view.setBackgroundColor(taskColor);
-        } else if(task.getClass() == ShortBreak.class) { // ShortBreak
-            holder.view.setBackgroundColor(pauseColor);
-            holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
-            holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 36, holder.taskIcon.getContext().getResources().getDisplayMetrics());
-        } else if (task.getClass() == LongBreak.class) { // LongBreak
-            holder.view.setBackgroundColor(pauseColor);
-            holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
-            holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, holder.taskIcon.getContext().getResources().getDisplayMetrics());
+        switch (task.getType()) {
+            case "task":
+                holder.view.setBackgroundColor(taskColor);
+
+                break;
+            case "shortBreak":
+                holder.view.setBackgroundColor(pauseColor);
+                holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
+                holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 36, holder.taskIcon.getContext().getResources().getDisplayMetrics());
+
+                break;
+            case "longBreak":
+                holder.view.setBackgroundColor(pauseColor);
+                holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
+                holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, holder.taskIcon.getContext().getResources().getDisplayMetrics());
+
+                break;
         }
 
         holder.taskDescription.setText(String.format("%s min. %s", task.getDuration(), task.getDescription()));
