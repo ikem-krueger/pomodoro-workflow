@@ -1,6 +1,5 @@
 package com.example.pomodoroworkflow;
 
-import android.graphics.Color;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,19 +31,22 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
         Task task = taskList.get(position);
 
-        if(task.getClass() == Task.class) {
-            holder.view.setBackgroundColor(Color.parseColor("#ED5755"));
-        } else if(task.getClass() == ShortBreak.class) {
-            holder.view.setBackgroundColor(Color.parseColor("#779C74"));
+        int taskColor = holder.view.getResources().getColor(R.color.taskColor,null);
+        int pauseColor = holder.view.getResources().getColor(R.color.pauseColor,null);
+
+        if(task.getClass() == Task.class) { // Task
+            holder.view.setBackgroundColor(taskColor);
+        } else if(task.getClass() == ShortBreak.class) { // ShortBreak
+            holder.view.setBackgroundColor(pauseColor);
             holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
             holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 36, holder.taskIcon.getContext().getResources().getDisplayMetrics());
-        } else if (task.getClass() == LongBreak.class) {
-            holder.view.setBackgroundColor(Color.parseColor("#779C74"));
+        } else if (task.getClass() == LongBreak.class) { // LongBreak
+            holder.view.setBackgroundColor(pauseColor);
             holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
             holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, holder.taskIcon.getContext().getResources().getDisplayMetrics());
         }
 
-        holder.taskDescription.setText(task.getDuration() + " min. " + task.getDescription());
+        holder.taskDescription.setText(String.format("%s min. %s", task.getDuration(), task.getDescription()));
     }
 
     @Override
@@ -53,10 +55,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     }
 
     public static class MainViewHolder extends RecyclerView.ViewHolder {
-
-        private View view;
-        private ImageView taskIcon;
-        private TextView taskDescription;
+        private final View view;
+        private final ImageView taskIcon;
+        private final TextView taskDescription;
 
         public  MainViewHolder(View v) {
             super(v);
