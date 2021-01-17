@@ -1,6 +1,5 @@
 package com.example.pomodoroworkflow;
 
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,15 +39,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
                 break;
             case "shortBreak":
-                holder.view.setBackgroundColor(pauseColor);
-                holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
-                holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 36, holder.taskIcon.getContext().getResources().getDisplayMetrics());
-
-                break;
             case "longBreak":
                 holder.view.setBackgroundColor(pauseColor);
                 holder.taskIcon.setImageResource(R.drawable.ic_pause_black_44dp);
-                holder.taskIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, holder.taskIcon.getContext().getResources().getDisplayMetrics());
 
                 break;
         }

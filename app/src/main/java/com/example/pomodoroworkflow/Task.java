@@ -4,6 +4,7 @@ public class Task {
     String duration;
     String description;
     String type;
+    boolean done = false;
 
     public Task(String duration, String description, String type) {
         this.duration = duration;
@@ -33,5 +34,13 @@ public class Task {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 }
