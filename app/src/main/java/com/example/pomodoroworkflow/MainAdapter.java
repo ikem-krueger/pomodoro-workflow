@@ -46,7 +46,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
                 break;
         }
 
-        holder.taskDescription.setText(String.format("%s min. %s", task.getDuration(), task.getDescription()));
+        holder.taskDescription.setText(task.getDescription());
+        holder.taskDuration.setText(task.getDuration() + " minutes");
     }
 
     @Override
@@ -57,6 +58,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     public static class MainViewHolder extends RecyclerView.ViewHolder {
         private final View view;
         private final ImageView taskIcon;
+        private final TextView taskDuration;
         private final TextView taskDescription;
 
         public  MainViewHolder(View v) {
@@ -65,6 +67,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             view = v;
             taskIcon = v.findViewById(R.id.taskIcon);
             taskDescription = v.findViewById(R.id.taskDescription);
+            taskDuration = v.findViewById(R.id.taskDuration);
         }
     }
 }
